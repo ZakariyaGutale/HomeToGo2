@@ -22,12 +22,16 @@
     <None Remove="Controllers\" />
     <None Remove="ClientApp\src\app\Listings\" />
     <None Remove="ClientApp\src\assets\Images\" />
+    <None Remove="ClientApp\src\app\Shared\" />
+    <None Remove="Models\" />
   </ItemGroup>
 
   <ItemGroup>
     <Folder Include="Controllers\" />
     <Folder Include="ClientApp\src\app\Listings\" />
     <Folder Include="ClientApp\src\assets\Images\" />
+    <Folder Include="ClientApp\src\app\Shared\" />
+    <Folder Include="Models\" />
   </ItemGroup>
     <Target Name="DebugEnsureNodeEnv" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('$(SpaRoot)node_modules') ">
     <!-- Ensure Node.js is installed -->

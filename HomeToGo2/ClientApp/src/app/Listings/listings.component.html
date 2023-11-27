@@ -1,12 +1,28 @@
 
-<h1 id="tableLabel">List of Items</h1>
+<h1 id="tableLabel">List of Lisgtings</h1>
+
+<button class="btn btn-primary" (click)='getListings()'>Get Listings</button>
+
+<div class="row">
+    <div class="col-md-2">Filter by:</div>
+    <div class="col-md-4">
+        <input type="text"
+               [(ngModel)]='listFilter' />
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-6">
+        <h4>Filtered by: {{listFilter}} </h4>
+    </div>
+</div>
 
 <table class='table table-striped' aria-labelledby="tableLabel">
     <thead>
         <tr>
-            <th>Listing Id</th>
+            <th>ListingId</th>
             <th>Title</th>
-            <th>Adress</th>
+            <th>Address</th>
             <th>Price</th>
             <th>Description</th>
             <th width="180">
@@ -18,11 +34,11 @@
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor='let listing of listings'>
+        <tr *ngFor='let listing of filteredListings'>
             <td>{{listing.ListingId}}</td>
             <td>{{listing.Title}}</td>
-            <td>{{listing.Adress}}</td>
-            <td>{{listing.Price}}</td>
+            <td>{{listing.Address}}</td>
+            <td width="120">{{ listing.Price | convertToCurrency: 'kr.' }}</td>
             <td>{{listing.Description}}</td>
             <td *ngIf="displayImage"><img [src]=listing.ImageUrl width="80" /></td>
         </tr>

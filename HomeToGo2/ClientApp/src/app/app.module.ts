@@ -8,6 +8,7 @@ import { AppComponent } from './app.component';
 import { NavMenuComponent } from './nav-menu/nav-menu.component';
 import { HomeComponent } from './home/home.component';
 import { ListingsComponent } from './listings/listings.component';
+import { ConvertToCurrency } from './Shared/convert-to-currency.pipe';
 
 
 @NgModule({
@@ -15,7 +16,8 @@ import { ListingsComponent } from './listings/listings.component';
     AppComponent,
     NavMenuComponent,
     HomeComponent,
-    ListingsComponent 
+    ListingsComponent,
+    ConvertToCurrency
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
