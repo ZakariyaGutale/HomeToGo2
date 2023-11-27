@@ -38,14 +38,13 @@ export class ListingsComponent {
       );
   }
 
-  
+
   filteredListings: IListing[] = this.listings;
 
   performFilter(filterBy: string): IListing[] {
     filterBy = filterBy.toLocaleLowerCase();
     return this.listings.filter((listing: IListing) =>
       listing.Title.toLocaleLowerCase().includes(filterBy))
-    
   }
 
    toggleImage(): void {
