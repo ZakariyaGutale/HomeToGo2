@@ -1,0 +1,31 @@
+
+<h1 id="tableLabel">List of Items</h1>
+
+<table class='table table-striped' aria-labelledby="tableLabel">
+    <thead>
+        <tr>
+            <th>Listing Id</th>
+            <th>Title</th>
+            <th>Adress</th>
+            <th>Price</th>
+            <th>Description</th>
+            <th width="180">
+                <button class="btn btn-primary"
+                        (click)="toggleImage()">
+                    {{ displayImage ? 'Hide' : 'Show' }} Image
+                </button>
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor='let listing of listings'>
+            <td>{{listing.ListingId}}</td>
+            <td>{{listing.Title}}</td>
+            <td>{{listing.Adress}}</td>
+            <td>{{listing.Price}}</td>
+            <td>{{listing.Description}}</td>
+            <td *ngIf="displayImage"><img [src]=listing.ImageUrl width="80" /></td>
+        </tr>
+    </tbody>
+</table>
+
