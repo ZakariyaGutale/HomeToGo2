@@ -1,4 +1,63 @@
 ﻿<Properties StartupConfiguration="{A7750590-EB2D-41EE-8081-A5A7994F1795}|Default">
-  <MonoDevelop.Ide.ItemProperties.HomeToGo2 FirstBuild="True" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.Workbench ActiveDocument="HomeToGo2/DAL/DBInit.cs">
+    <Files>
+      <File FileName="HomeToGo2/ClientApp/src/app/Shared/convert-to-currency.pipe.ts" Line="13" Column="1" />
+      <File FileName="HomeToGo2/ClientApp/src/app/app.module.ts" Line="12" Column="73" />
+      <File FileName="HomeToGo2/ClientApp/src/app/Listings/listings.component.html" Line="48" Column="94" />
+      <File FileName="HomeToGo2/ClientApp/src/app/Listings/listings.component.ts" Line="19" Column="40" />
+      <File FileName="HomeToGo2/ClientApp/src/app/Listings/listings.component.css" Line="1" Column="1" />
+      <File FileName="HomeToGo2/ClientApp/src/app/Listings/listing.ts" Line="5" Column="6" />
+      <File FileName="HomeToGo2/Controllers/ListingController.cs" Line="60" Column="33" />
+      <File FileName="HomeToGo2/Models/Listing.cs" Line="14" Column="27" />
+      <File FileName="HomeToGo2/ClientApp/src/index.html" Line="1" Column="1" />
+      <File FileName="HomeToGo2/ClientApp/proxy.conf.js" Line="9" Column="12" />
+      <File FileName="HomeToGo2/ClientApp/src/app/app.component.html" Line="1" Column="1" />
+      <File FileName="HomeToGo2/ClientApp/src/app/app.component.ts" Line="1" Column="1" />
+      <File FileName="HomeToGo2/ClientApp/src/app/Listings/listingform.component.html" Line="27" Column="1" />
+      <File FileName="HomeToGo2/ClientApp/src/app/Listings/listingform.component.ts" Line="40" Column="3" />
+      <File FileName="HomeToGo2/ClientApp/src/app/nav-menu/nav-menu.component.html" Line="1" Column="1" />
+      <File FileName="HomeToGo2/ClientApp/src/app/Listings/listings.service.ts" Line="10" Column="34" />
+      <File FileName="HomeToGo2/DAL/DBInit.cs" Line="28" Column="14" />
+      <File FileName="HomeToGo2/DAL/IListingRepository.cs" Line="3" Column="20" />
+      <File FileName="HomeToGo2/DAL/ListingRepository.cs" Line="1" Column="1" />
+      <File FileName="HomeToGo2/DAL/ListingDbContext.cs" Line="16" Column="47" />
+      <File FileName="HomeToGo2/Program.cs" Line="37" Column="1" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="HomeToGo2">
+            <Node name="HomeToGo2">
+              <Node name="Dependencies" expanded="True">
+                <Node name="PackageDependencies" expanded="True">
+                  <Node name="Microsoft.EntityFrameworkCore.Sqlite" expanded="True">
+                    <Node name="Microsoft.EntityFrameworkCore.Sqlite.Core" expanded="True" selected="True" />
+                  </Node>
+                </Node>
+              </Node>
+              <Node name="ClientApp" expanded="True">
+                <Node name="src" expanded="True">
+                  <Node name="app" expanded="True">
+                    <Node name="Listings" expanded="True" />
+                    <Node name="nav-menu" expanded="True" />
+                    <Node name="Shared" expanded="True" />
+                  </Node>
+                </Node>
+              </Node>
+              <Node name="Controllers" expanded="True" />
+              <Node name="DAL" expanded="True" />
+              <Node name="Models" expanded="True" />
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
   <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.ItemProperties.HomeToGo2 PreferredExecutionTarget="/Applications/Google Chrome.app" />
 </Properties>

@@ -12,6 +12,10 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.SpaProxy" Version="6.0.21" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Proxies" Version="7.0.10" />
+    <PackageReference Include="Serilog.Extensions.Logging.File" Version="3.0.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="7.0.10" />
+    <PackageReference Include="Serilog" Version="3.0.1" />
   </ItemGroup>
 
   <ItemGroup>
@@ -24,6 +28,7 @@
     <None Remove="ClientApp\src\assets\Images\" />
     <None Remove="ClientApp\src\app\Shared\" />
     <None Remove="Models\" />
+    <None Remove="DAL\" />
   </ItemGroup>
 
   <ItemGroup>
@@ -32,6 +37,7 @@
     <Folder Include="ClientApp\src\assets\Images\" />
     <Folder Include="ClientApp\src\app\Shared\" />
     <Folder Include="Models\" />
+    <Folder Include="DAL\" />
   </ItemGroup>
     <Target Name="DebugEnsureNodeEnv" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('$(SpaRoot)node_modules') ">
     <!-- Ensure Node.js is installed -->

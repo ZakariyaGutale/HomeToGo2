@@ -2,6 +2,8 @@
 import { Component, OnInit } from '@angular/core';
 import { IListing } from './listing';
 import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
+import { ListingService } from './listings.service';
 
 @Component({
   selector: 'app-listings-component',
@@ -14,7 +16,7 @@ export class ListingsComponent {
   displayImage: boolean = true;
   listings: IListing[] = [];
 
-  constructor(private _http: HttpClient) { }
+  constructor(private _router: Router, private _listingService: ListingService) { }
 
   private _listFilter: string = '';
   get listFilter(): string {
@@ -27,7 +29,7 @@ export class ListingsComponent {
   }
 
   getListings(): void {
-    this._http.get<IListing[]>("api/listing/")
+    this._listingService.getListings()
       .subscribe((data: IListing[]) => {  // Explicitly declare data as type IListing[]
         console.log('All', JSON.stringify(data));
         this.listings = data;
@@ -48,5 +50,9 @@ export class ListingsComponent {
 
    toggleImage(): void {
     this.displayImage = !this.displayImage;
+   }
+
+  navigateToListingForm() {
+    this._router.navigate(['/listingform']);
   }
 }
