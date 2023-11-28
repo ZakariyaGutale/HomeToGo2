@@ -1,0 +1,30 @@
+<h2>Create New Reservation</h2>
+
+<form [formGroup]="reservationForm" (ngSubmit)="onSubmit()">
+  <!-- Listing ID Dropdown -->
+  <div class="form-group">
+    <label for="listingId">Select a listing:</label><span class="text-danger">*</span>
+    <select id="listingId" formControlName="ListingId" class="form-control">
+      <option value="">Select a listing...</option>
+      <option *ngFor="let listing of listings" [value]="listing.ListingId">
+        {{ listing.Title }}
+      </option>
+    </select>
+  </div>
+
+  <!-- Check-In Date -->
+  <div class="form-group">
+    <label for="checkInDate">Check-In Date:</label><span class="text-danger">*</span>
+    <input type="date" id="checkInDate" formControlName="CheckInDate" class="form-control" />
+  </div>
+
+  <!-- Check-Out Date -->
+  <div class="form-group">
+    <label for="checkOutDate">Check-Out Date:</label><span class="text-danger">*</span>
+    <input type="date" id="checkOutDate" formControlName="CheckOutDate" class="form-control" />
+  </div>
+
+  <!-- Submission Buttons -->
+  <button type="submit" class="btn btn-primary" [disabled]="reservationForm.invalid">Create Reservation</button>
+  <button type="button" class="btn btn-secondary" (click)="backToReservations()">Cancel</button>
+</form>

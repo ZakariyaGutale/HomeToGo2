@@ -32,11 +32,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Controllers\" />
     <Folder Include="ClientApp\src\app\Listings\" />
     <Folder Include="ClientApp\src\assets\Images\" />
     <Folder Include="ClientApp\src\app\Shared\" />
-    <Folder Include="Models\" />
     <Folder Include="DAL\" />
   </ItemGroup>
     <Target Name="DebugEnsureNodeEnv" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('$(SpaRoot)node_modules') ">

@@ -1,10 +1,28 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Title</title>
-</head>
-<body>
+<!-- reservation.component.html -->
+<h1 id="tableLabel">List of Reservations</h1>
 
-</body>
-</html>
+<table class='table table-striped' aria-labelledby="tableLabel">
+  <thead>
+  <tr>
+    <th>ReservationId</th>
+    <th>Order Date</th>
+    <th>Listing</th>
+    <th>Check In Date</th>
+    <th>Check Out Date</th>
+    <th>Total Price</th>
+    <th>Delete</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor='let reservation of reservations'>
+    <td>{{reservation.ReservationId}}</td>
+    <td>{{reservation.ReservationDate | date:'shortDate'}}</td>
+    <td>{{reservation.Listing?.Title}}</td>
+    <td>{{reservation.CheckInDate | date:'shortDate'}}</td>
+    <td>{{reservation.CheckOutDate | date:'shortDate'}}</td>
+    <td>{{reservation.TotalPrice | currency:'NOK'}}</td>
+  </tr>
+  </tbody>
+</table>
+
+<button class="btn btn-primary" (click)="navigateToReservationForm()">Create New Reservation</button>

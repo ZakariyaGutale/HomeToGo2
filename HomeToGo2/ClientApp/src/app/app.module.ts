@@ -10,8 +10,8 @@ import { HomeComponent } from './home/home.component';
 import { ListingsComponent } from './listings/listings.component';
 import { ConvertToCurrency } from './Shared/convert-to-currency.pipe';
 import { ListingFormComponent } from './Listings/listingform.component';
-
-
+import { ReservationsComponent } from './reservations/reservations.component';
+import { ReservationFormComponent } from './reservations/reservationform.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -19,7 +19,9 @@ import { ListingFormComponent } from './Listings/listingform.component';
     HomeComponent,
     ListingsComponent,
     ConvertToCurrency,
-    ListingFormComponent
+    ListingFormComponent,
+    ReservationsComponent,
+    ReservationFormComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -30,11 +32,10 @@ import { ListingFormComponent } from './Listings/listingform.component';
       { path: '', component: HomeComponent, pathMatch: 'full' },
       { path: 'listings', component: ListingsComponent },
       { path: 'listingform', component: ListingFormComponent },
-      
+      { path: 'reservations', component: ReservationsComponent },
+      { path: 'reservationform', component: ReservationFormComponent }
     ])
   ],
-  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
-

@@ -19,7 +19,6 @@ public static class DBInit
         //context.Database.EnsureDeleted();
         context.Database.EnsureCreated();
 
-        
         context.SaveChanges();
 
         if (!context.Listings.Any())
@@ -32,11 +31,11 @@ public static class DBInit
                     Title = "Tjuvholem, Penthouse",
                     Address = "Osloveien 36",
                     Price = 1200,
-                    Description = "This apartment at Tjuvholmen impresses with its modern style and exclusive location, right by Oslo’s waterfront",                 
-                    ImageUrl = "./assets/Images/Ap1.jpg"
+                    Description = "This apartment at Tjuvholmen impresses with its modern style and exclusive location, right by Oslo’s waterfront",
+                    ImageUrl = "/Images/Ap1.jpg"
                 },
-
-
+             
+   
                 new Listing
                 {
                     ListingId = 2,
@@ -44,7 +43,7 @@ public static class DBInit
                     Address = "Pilistredet 32",
                     Price = 400,
                     Description = "This modern apartment in Pilestredet is perfect for those who wish to live centrally in Oslo.\"",
-                    ImageUrl = "./assets/Images/Ap3.jpg"
+                    ImageUrl = "/Images/Ap3.jpg"
                 },
                 new Listing
                 {
@@ -53,7 +52,7 @@ public static class DBInit
                     Address = "Montebello gate 1",
                     Price = 2500,
                     Description = "This spacious villa in Montebello combines luxury and comfort..",
-                    ImageUrl = "./assets/Images/Ap4.jpg"
+                    ImageUrl = "/Images/Ap4.jpg"
                 },
                 new Listing
                 {
@@ -62,7 +61,7 @@ public static class DBInit
                     Address = "Frogner Veien 43",
                     Price = 1600,
                     Description = "Single-family homes in Frogner Hageby in Oslo are renowned for their idyllic and lush atmosphere.",
-                    ImageUrl = "./assets/Images/Ap5.jpg"
+                    ImageUrl = "/Images/Ap5.jpg"
                 },
                 new Listing
                 {
@@ -71,21 +70,50 @@ public static class DBInit
                     Address = "Zanzi 73",
                     Price = 3500,
                     Description = "This beach house in Zanzibar offers stunning ocean views, perfect for a relaxing holiday..",
-                    ImageUrl = "./assets/Images/Ap6.jpg"
+                    ImageUrl = "/Images/Ap6.jpg"
                 },
-
-
-
+            
+   
+   
             };
-
+            
             context.AddRange(listings);
             context.SaveChanges();
         }
+        
+        if (!context.Reservations.Any())
+        {
+            var reservations = new List<Reservation> 
+            {
+                new Reservation()
+                {
+                    ReservationId = 1,
+                    ListingId = 1, 
+                    CheckInDate = DateTime.Now.AddDays(1),
+                    CheckOutDate = DateTime.Now.AddDays(7),
+                    TotalPrice = 700 
+                },
+                new Reservation()
+                {
+                    ReservationId = 2,
+                    ListingId = 3, 
+                    CheckInDate = DateTime.Now.AddDays(1),
+                    CheckOutDate = DateTime.Now.AddDays(3),
+                    TotalPrice = 700 
+                },
+                new Reservation()
+                {
+                    ReservationId = 3,
+                    ListingId = 5, 
+                    CheckInDate = DateTime.Now.AddDays(1),
+                    CheckOutDate = DateTime.Now.AddDays(5),
+                    TotalPrice = 700 
+                }
+            }; 
 
-       
-
-           
+            context.AddRange(reservations);
+            context.SaveChanges();
         }
 
     }
-
+}

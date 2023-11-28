@@ -1,4 +1,3 @@
-
 export interface IListing {
   ListingId: number;
   Title: string;

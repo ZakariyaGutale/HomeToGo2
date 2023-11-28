@@ -132,5 +132,8 @@
       }
     }
   },
-  "defaultProject": "HomeToGo2"
+  "defaultProject": "HomeToGo2",
+  "cli": {
+    "analytics": false
+  }
 }
