@@ -12,6 +12,10 @@ import { ConvertToCurrency } from './Shared/convert-to-currency.pipe';
 import { ListingFormComponent } from './Listings/listingform.component';
 import { ListingsGridComponent } from './Listings/listingsgrid.component';
 import { ListingDetailComponent } from './Listings/listingdetail.component';
+import { ReservationsComponent } from './reservations/reservations.component';
+import { ReservationFormComponent } from './reservations/reservationform.component';
+import { LoginComponent } from './Authentication/login.component';
+import {AuthService} from "./Authentication/auth.service";
 
 
 @NgModule({
@@ -23,7 +27,11 @@ import { ListingDetailComponent } from './Listings/listingdetail.component';
     ConvertToCurrency,
     ListingFormComponent,
     ListingsGridComponent,
-    ListingDetailComponent
+    ListingDetailComponent,
+    ReservationsComponent,
+    ReservationFormComponent,
+    LoginComponent // Add LoginComponent to declarations
+
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -37,10 +45,13 @@ import { ListingDetailComponent } from './Listings/listingdetail.component';
       { path: 'listingform/:mode/:id', component: ListingFormComponent },
       { path: 'listingsgrid', component: ListingsGridComponent },
       { path: 'listingdetail/:id', component: ListingDetailComponent },
+      { path: 'reservations', component: ReservationsComponent },
+      { path: 'reservationform', component: ReservationFormComponent },
+      { path: 'login', component: LoginComponent }, // Add route for LoginComponent
       { path: '**', redirectTo: '', pathMatch: 'full' },
     ])
   ],
-  providers: [],
+  providers: [AuthService], // Add AuthService to providers
   bootstrap: [AppComponent]
 })
 export class AppModule { }
