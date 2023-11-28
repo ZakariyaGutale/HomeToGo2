@@ -26,9 +26,12 @@ namespace HomeToGo.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Reservation>>> GetReservations()
         {
-            var reservations = await _listingDbContext.Reservations.Include(r => r.Listing).ToListAsync();
+            var reservations = await _listingDbContext.Reservations
+                .Include(r => r.Listing) 
+                .ToListAsync();
             return Ok(reservations);
         }
+
 
         [HttpPost("create")]
         public async Task<ActionResult<Reservation>> CreateReservation([FromBody] Reservation reservation)
@@ -73,7 +76,7 @@ namespace HomeToGo.Controllers
             {
                 return NotFound();
             }
-
+        
             _listingDbContext.Reservations.Remove(reservation);
             await _listingDbContext.SaveChangesAsync();
 

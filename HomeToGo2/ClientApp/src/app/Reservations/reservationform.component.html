@@ -3,7 +3,7 @@
 <form [formGroup]="reservationForm" (ngSubmit)="onSubmit()">
   <!-- Listing ID Dropdown -->
   <div class="form-group">
-    <label for="listingId">Select a listing:</label><span class="text-danger">*</span>
+    <label for="listingId">Listings:</label><span class="text-danger">*</span>
     <select id="listingId" formControlName="ListingId" class="form-control">
       <option value="">Select a listing...</option>
       <option *ngFor="let listing of listings" [value]="listing.ListingId">

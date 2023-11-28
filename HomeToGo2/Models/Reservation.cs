@@ -21,8 +21,8 @@ namespace HomeToGo2.Models
 
         [JsonPropertyName("ListingId")]
         public int ListingId { get; set; }
-
-        [JsonIgnore] 
+        
+        [JsonPropertyName("Listing")]
         public virtual Listing Listing { get; set; }
 
         [DataType(DataType.Date)]

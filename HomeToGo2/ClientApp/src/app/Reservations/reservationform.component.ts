@@ -23,7 +23,6 @@ export class ReservationFormComponent implements OnInit {
       ListingId: ['', Validators.required],
       CheckInDate: ['', Validators.required],
       CheckOutDate: ['', Validators.required],
-
     });
   }
 

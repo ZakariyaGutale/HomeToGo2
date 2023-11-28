@@ -1,12 +1,10 @@
-import {IListing} from "../listings/listing";
+import { IListing } from "../listings/listing";
 
 export interface IReservation {
   ReservationId: number;
   ReservationDate: Date;
-  // UserId: string;
- // User?: IIdentityUser;
   ListingId: number;
-  Listing?: IListing;
+  Listing?: IListing; // Make sure this matches the structure returned by the API
   CheckInDate: Date;
   CheckOutDate: Date;
   TotalPrice: number;

@@ -4,12 +4,12 @@
 <table class='table table-striped' aria-labelledby="tableLabel">
   <thead>
   <tr>
-    <th>ReservationId</th>
+    <th>Reservation Id</th>
     <th>Order Date</th>
-    <th>Listing</th>
+    <th>Listing</th> <!-- Added this line -->
     <th>Check In Date</th>
     <th>Check Out Date</th>
-    <th>Total Price</th>
+    <th>Totalprice</th>
     <th>Delete</th>
   </tr>
   </thead>
@@ -21,8 +21,10 @@
     <td>{{reservation.CheckInDate | date:'shortDate'}}</td>
     <td>{{reservation.CheckOutDate | date:'shortDate'}}</td>
     <td>{{reservation.TotalPrice | currency:'NOK'}}</td>
+    <td><button class="btn btn-danger" (click)="deleteReservation(reservation.ReservationId)">Delete</button></td>
   </tr>
   </tbody>
+
 </table>
 
 <button class="btn btn-primary" (click)="navigateToReservationForm()">Create New Reservation</button>

@@ -23,6 +23,7 @@ export class ReservationsComponent implements OnInit {
       .subscribe((data: IReservation[]) => {
         console.log('All', JSON.stringify(data));
         this.reservations = data; // Corrected variable name
+        console.log('Fetched Reservations:', this.reservations);
       });
   }
 
@@ -34,4 +35,14 @@ export class ReservationsComponent implements OnInit {
   navigateToReservationForm() {
     this._router.navigate(['/reservationform']);
   }
+
+  deleteReservation(id: number): void {
+    if (confirm('Are you sure you want to delete this reservation?')) {
+      this._ReservationService.deleteReservation(id).subscribe(() => {
+        // Refresh the list or remove the item from the array
+        this.reservations = this.reservations.filter(reservation => reservation.ReservationId !== id);
+      });
+    }
+  }
+
 }
