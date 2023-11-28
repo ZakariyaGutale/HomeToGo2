@@ -41,9 +41,14 @@
             <td width="120">{{ listing.Price | convertToCurrency: 'kr.' }}</td>
             <td>{{listing.Description}}</td>
             <td *ngIf="displayImage"><img [src]=listing.ImageUrl width="80" /></td>
+            <td>
+                <button class="btn btn-secondary" [routerLink]="['/listingform', 'edit', listing.ListingId]">Update</button>
+                <button class="btn btn-danger" (click)="deleteListing(listing)">Delete</button>
+            </td>
         </tr>
     </tbody>
 </table>
 
+<button class='btn btn-primary' [routerLink]="['/listingform', 'create', -1]">Create New Listing</button>
 <button class="btn btn-primary" (click)="navigateToListingForm()">Create New Listing</button>
 

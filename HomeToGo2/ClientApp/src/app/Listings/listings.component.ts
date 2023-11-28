@@ -47,11 +47,32 @@ export class ListingsComponent {
       listing.Title.toLocaleLowerCase().includes(filterBy))
   }
 
+  deleteListing(listing: IListing): void {
+    const confirmDelete = confirm(`Are you sure you want to delete "${listing.Title}"?`);
+    if (confirmDelete) {
+      this._listingService.deleteListing(listing.ListingId)
+        .subscribe(
+          (response) => {
+            if (response.success) {
+              console.log(response.message);
+              this.filteredListings = this.filteredListings.filter(i => i !== listing);
+            }
+          },
+          (error) => {
+            console.error('Error deleting listing:', error);
+          });
+    }
+  }
+
    toggleImage(): void {
     this.displayImage = !this.displayImage;
    }
 
   navigateToListingForm() {
     this._router.navigate(['/listingform']);
+  }
+
+  ngOnInit(): void {
+    this.getListings();
   }
 }

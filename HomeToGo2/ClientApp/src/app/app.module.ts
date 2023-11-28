@@ -30,7 +30,8 @@ import { ListingFormComponent } from './Listings/listingform.component';
       { path: '', component: HomeComponent, pathMatch: 'full' },
       { path: 'listings', component: ListingsComponent },
       { path: 'listingform', component: ListingFormComponent },
-      
+      { path: 'listingform/:mode/:id', component: ListingFormComponent },
+      { path: '**', redirectTo: '', pathMatch: 'full' },
     ])
   ],
   providers: [],
