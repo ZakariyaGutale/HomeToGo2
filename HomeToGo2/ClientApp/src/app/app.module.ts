@@ -10,6 +10,8 @@ import { HomeComponent } from './home/home.component';
 import { ListingsComponent } from './listings/listings.component';
 import { ConvertToCurrency } from './Shared/convert-to-currency.pipe';
 import { ListingFormComponent } from './Listings/listingform.component';
+import { ListingsGridComponent } from './Listings/listingsgrid.component';
+
 
 
 @NgModule({
@@ -19,7 +21,8 @@ import { ListingFormComponent } from './Listings/listingform.component';
     HomeComponent,
     ListingsComponent,
     ConvertToCurrency,
-    ListingFormComponent
+    ListingFormComponent,
+    ListingsGridComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -31,6 +34,7 @@ import { ListingFormComponent } from './Listings/listingform.component';
       { path: 'listings', component: ListingsComponent },
       { path: 'listingform', component: ListingFormComponent },
       { path: 'listingform/:mode/:id', component: ListingFormComponent },
+      { path: 'listingsgrid', component: ListingsGridComponent },
       { path: '**', redirectTo: '', pathMatch: 'full' },
     ])
   ],

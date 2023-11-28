@@ -1,0 +1,83 @@
+/* Grid Layout */
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  margin-right: -15px;
+  margin-left: -15px;
+}
+
+.row-cols-1 {
+  --bs-cols: 1;
+}
+
+.row-cols-md-3 {
+  --bs-cols-md: 3;
+}
+
+.g-4 {
+  gap: 1.5rem;
+}
+
+.col {
+  flex: 1 0 0%;
+}
+
+/* Card Styling */
+.card {
+  background: #fff;
+  border-radius: 15px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: transform 0.3s;
+  margin-bottom: 1.5rem; /* Spacing between cards */
+}
+
+.card-link {
+  text-decoration: none;
+  color: inherit;
+}
+
+.card-img-top {
+  width: 100%;
+  height: auto;
+  border-top-left-radius: calc(15px - 1px); /* Align with card's border-radius */
+  border-top-right-radius: calc(15px - 1px);
+}
+
+.card-body {
+  padding: 20px;
+}
+
+.card-title {
+  margin-bottom: 15px;
+  font-size: 1.25rem;
+}
+
+.card-text {
+  font-size: 1rem;
+  margin-bottom: 20px;
+}
+
+.card-footer {
+  padding: 10px 20px;
+  background-color: #f8f9fa;
+  border-top: 1px solid #e9ecef;
+}
+
+/* Button Styling */
+.btn-primary {
+  color: #fff;
+  background-color: #007bff;
+  border-color: #007bff;
+}
+
+.btn-secondary {
+  color: #fff;
+  background-color: #6c757d;
+  border-color: #6c757d;
+}
+
+/* Hover Effect */
+.card:hover {
+  transform: translateY(-10px);
+}
