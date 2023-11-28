@@ -1,4 +1,4 @@
-<h2>Create Listing</h2>
+<h2>{{ isEditMode ? 'Update' : 'Create' }}  Listing</h2>
 
 <form [formGroup]="listingForm" (ngSubmit)="onSubmit()">
     <div class="form-group">
@@ -21,6 +21,8 @@
         <label for="imageUrl">Image URL:</label>
         <input type="text" id="imageUrl" formControlName="imageUrl" class="form-control" />
     </div>
-    <button class='btn btn-primary' type="submit" [disabled]="listingForm.invalid">Create Listing</button>
+    <button class='btn btn-primary' type="submit" [disabled]="listingForm.invalid">
+    {{ isEditMode ? 'Update' : 'Create' }} Listing
+    </button>
     <button class="btn btn-secondary" (click)="backToListings()">Cancel</button>
 </form>

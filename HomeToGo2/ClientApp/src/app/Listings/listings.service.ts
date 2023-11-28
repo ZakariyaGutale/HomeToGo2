@@ -19,4 +19,19 @@ export class ListingService {
     const createUrl = 'api/listing/create';
     return this._http.post<any>(createUrl, newListing);
   }
+  getListingById(listingId: number): Observable<any> {
+    const url = `${this.baseUrl}/${listingId}`;
+    return this._http.get(url);
+  }
+
+  updateListing(listingId: number, newListing: any): Observable<any> {
+    const url = `${this.baseUrl}/update/${listingId}`;
+    newListing.listingId = listingId;
+    return this._http.put<any>(url, newListing);
+  }
+
+  deleteListing(listingId: number): Observable<any> {
+    const url = `${this.baseUrl}/delete/${listingId}`;
+    return this._http.delete(url);
+  }
 }

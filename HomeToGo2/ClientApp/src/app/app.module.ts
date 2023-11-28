@@ -8,12 +8,11 @@ import { AppComponent } from './app.component';
 import { NavMenuComponent } from './nav-menu/nav-menu.component';
 import { HomeComponent } from './home/home.component';
 import { ListingsComponent } from './listings/listings.component';
-import { ConvertToCurrency } from './shared/convert-to-currency.pipe';
-import { ListingFormComponent } from './listings/listingform.component';
-import { ReservationsComponent } from './reservations/reservations.component';
-import { ReservationFormComponent } from './reservations/reservationform.component';
-import { LoginComponent } from './Authentication/login.component';
-import {AuthService} from "./Authentication/auth.service";
+import { ConvertToCurrency } from './Shared/convert-to-currency.pipe';
+import { ListingFormComponent } from './Listings/listingform.component';
+import { ListingsGridComponent } from './Listings/listingsgrid.component';
+import { ListingDetailComponent } from './Listings/listingdetail.component';
+
 
 @NgModule({
   declarations: [
@@ -23,9 +22,8 @@ import {AuthService} from "./Authentication/auth.service";
     ListingsComponent,
     ConvertToCurrency,
     ListingFormComponent,
-    ReservationsComponent,
-    ReservationFormComponent,
-    LoginComponent // Add LoginComponent to declarations
+    ListingsGridComponent,
+    ListingDetailComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -36,12 +34,14 @@ import {AuthService} from "./Authentication/auth.service";
       { path: '', component: HomeComponent, pathMatch: 'full' },
       { path: 'listings', component: ListingsComponent },
       { path: 'listingform', component: ListingFormComponent },
-      { path: 'reservations', component: ReservationsComponent },
-      { path: 'reservationform', component: ReservationFormComponent },
-      { path: 'login', component: LoginComponent } // Add route for LoginComponent
+      { path: 'listingform/:mode/:id', component: ListingFormComponent },
+      { path: 'listingsgrid', component: ListingsGridComponent },
+      { path: 'listingdetail/:id', component: ListingDetailComponent },
+      { path: '**', redirectTo: '', pathMatch: 'full' },
     ])
   ],
-  providers: [AuthService], // Add AuthService to providers
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+

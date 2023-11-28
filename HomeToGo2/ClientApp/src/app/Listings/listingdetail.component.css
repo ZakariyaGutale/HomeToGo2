@@ -1,0 +1,12 @@
+.container {
+  margin-top: 2rem;
+}
+
+.img-fluid {
+  max-width: 100%;
+  height: auto;
+  border-radius: .25rem;
+  box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .15);
+}
+
+/* You can continue to add styles here that match your Razor view */

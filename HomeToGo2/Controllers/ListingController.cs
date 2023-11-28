@@ -44,7 +44,7 @@ public class ListingController : Controller
     {
         if (newListing == null)
         {
-            return BadRequest("Invalid item data.");
+            return BadRequest("Invalid listing data.");
         }
 
         bool returnOk = await _listingRepository.Create(newListing);
@@ -61,17 +61,50 @@ public class ListingController : Controller
         }
     }
 
-    /*
-
-    private static int GetNextListingId()
+    [HttpGet("{id}")]
+    public async Task<IActionResult> GetListingbyId(int id)
     {
-        if (Listings.Count == 0)
+        var listing = await _listingRepository.GetListingById(id);
+        if (listing == null)
         {
-            return 1;
+            _logger.LogError("[ListingController] Listing list not found while executing _listingRepository.GetAll()");
+            return NotFound("Listing list not found");
         }
-        return Listings.Max(Listing => Listing.ListingId) + 1;
+        return Ok(listing);
     }
-    */
+
+    [HttpPut("update/{id}")]
+    public async Task<IActionResult> Update(Listing newListing)
+    {
+        if (newListing == null)
+        {
+            return BadRequest("Invalid listing data.");
+        }
+        bool returnOk = await _listingRepository.Update(newListing);
+        if (returnOk)
+        {
+            var response = new { success = true, message = "Listing " + newListing.Title + " updated successfully" };
+            return Ok(response);
+        }
+        else
+        {
+            var response = new { success = false, message = "Listing creation failed" };
+            return Ok(response);
+        }
+    }
+
+    [HttpDelete("delete/{id}")]
+    public async Task<IActionResult> DeleteListing(int id)
+    {
+        bool returnOk = await _listingRepository.Delete(id);
+        if (!returnOk)
+        {
+            _logger.LogError("[ListingController] Listing deletion failed for the ListingId {ListingId:0000}", id);
+            return BadRequest("Listing deletion failed");
+        }
+        var response = new { success = true, message = "Listing " + id.ToString() + " deleted successfully" };
+        return Ok(response);
+    }
 
 
 }
