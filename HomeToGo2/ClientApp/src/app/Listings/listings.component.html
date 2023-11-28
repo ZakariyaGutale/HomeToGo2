@@ -1,5 +1,5 @@
 
-<h1 id="tableLabel">List of Lisgtings</h1>
+<h1 id="tableLabel">List of Listings Properties</h1>
 
 <button class="btn btn-primary" (click)='getListings()'>Get Listings</button>
 <button class="btn btn-secondary" [routerLink]="['/listingsgrid']">Grid View</button>
@@ -38,7 +38,9 @@
     <tbody>
         <tr *ngFor='let listing of filteredListings'>
             <td>{{listing.ListingId}}</td>
-            <td>{{listing.Title}}</td>
+            <td>
+                <a class="link-primary" (click)="goToListingDetail(listing.ListingId)">{{listing.Title}}</a>
+            </td>
             <td>{{listing.Address}}</td>
             <td width="120">{{ listing.Price | convertToCurrency: 'kr.' }}</td>
             <td>{{listing.Description}}</td>

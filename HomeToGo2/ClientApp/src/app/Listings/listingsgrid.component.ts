@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { IListing } from './listing';
 import { ListingService } from './listings.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-listingsgrid',
@@ -10,7 +11,7 @@ import { ListingService } from './listings.service';
 export class ListingsGridComponent implements OnInit {
   listings: IListing[] = []; // Array to store listings
 
-  constructor(private listingService: ListingService) { }
+  constructor(private listingService: ListingService, private _router: Router) { }
 
   ngOnInit(): void {
     this.fetchListings();
@@ -25,5 +26,9 @@ export class ListingsGridComponent implements OnInit {
         console.error('Error fetching listings', error);
       }
     );
+  }
+
+  goToListingDetail(listingId: number): void {
+    this._router.navigate(['/listingdetail', listingId]);
   }
 }

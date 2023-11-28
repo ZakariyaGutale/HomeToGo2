@@ -75,4 +75,8 @@ export class ListingsComponent {
   ngOnInit(): void {
     this.getListings();
   }
+
+  goToListingDetail(listingId: number): void {
+    this._router.navigate(['/listingdetail', listingId]);
+  }
 }
