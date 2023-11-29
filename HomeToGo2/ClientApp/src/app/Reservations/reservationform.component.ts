@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { ReservationService } from './reservations.service';
 import { IListing } from '../listings/listing';
 import { ListingService } from '../listings/listings.service';
+import { IReservation } from './reservation';
 
 @Component({
   selector: "app-reservation-form",
@@ -23,7 +24,6 @@ export class ReservationFormComponent implements OnInit {
       ListingId: ['', Validators.required],
       CheckInDate: ['', Validators.required],
       CheckOutDate: ['', Validators.required],
-
     });
   }
 
@@ -32,24 +32,30 @@ export class ReservationFormComponent implements OnInit {
   }
 
   loadListings(): void {
-    this.listingService.getListings().subscribe({
-      next: (listings) => this.listings = listings,
-      error: (error) => console.error('Error loading listings', error)
-    });
+    this.listingService.getListings().subscribe(
+      listings => this.listings = listings,
+      error => console.error('Error loading listings:', error)
+    );
   }
 
   onSubmit(): void {
-    console.log("Reservationcreate form submitted: ");
-    console.log(this.reservationForm);
-    const newReservation = this.reservationForm.value;
-    this.reservationService.createReservation(newReservation)
-      .subscribe({
-        next: (response) => {
-          console.log(response.message);
+    if (this.reservationForm.valid) {
+      const newReservation: IReservation = {
+        ...this.reservationForm.value,
+        ReservationDate: new Date(), // Server will set the reservation date
+        TotalPrice: 0 // Server will calculate the total price
+      };
+
+      this.reservationService.createReservation(newReservation).subscribe(
+        response => {
+          console.log('Reservation created:', response);
           this.router.navigate(['/reservations']);
         },
-        error: (error) => console.error('Reservation creation failed', error)
-      });
+        error => console.error('Reservation creation failed:', error)
+      );
+    } else {
+      console.error('Form is not valid');
+    }
   }
 
   backToReservations(): void {

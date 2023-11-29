@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { IReservation } from './reservation';
-import { Router } from '@angular/router';
 import { ReservationService } from './reservations.service';
+import { Router } from '@angular/router';
+import { ListingService } from '../listings/listings.service';
+import { IListing } from '../listings/listing';
 
 @Component({
   selector: 'app-reservations-component',
@@ -9,29 +11,44 @@ import { ReservationService } from './reservations.service';
   styleUrls: ['./reservations.component.css']
 })
 export class ReservationsComponent implements OnInit {
-  viewTitle: string = 'Table';
-  displayImage: boolean = true;
   reservations: IReservation[] = [];
 
-  constructor(private _router: Router, private _ReservationService: ReservationService) { }
+  constructor(
+    private reservationService: ReservationService,
+    private router: Router,
+    private listingService: ListingService
+
+  ) {}
 
   ngOnInit(): void {
-    this.getReservations();
+    this.fetchReservations();
   }
-  getReservations(): void {
-    this._ReservationService.getReservations()
-      .subscribe((data: IReservation[]) => {
-        console.log('All', JSON.stringify(data));
-        this.reservations = data; // Corrected variable name
+
+  private fetchReservations(): void {
+    this.reservationService.getReservations().subscribe(reservations => {
+      this.reservations = reservations;
+      this.reservations.forEach(reservation => {
+        if (reservation.ListingId) {
+          this.fetchListingForReservation(reservation);
+        }
       });
+    });
   }
 
-
-  toggleImage(): void {
-    this.displayImage = !this.displayImage;
+  private fetchListingForReservation(reservation: IReservation): void {
+    this.listingService.getListingById(reservation.ListingId).subscribe(
+      (listing: IListing) => {
+        reservation.Listing = listing;
+      },
+      error => {
+        console.error('Error fetching listing for reservation:', error);
+      }
+    );
   }
 
-  navigateToReservationForm() {
-    this._router.navigate(['/reservationform']);
+  navigateToReservationForm(): void{
+    this.router.navigate(['/reservationform']);
   }
+
 }
+

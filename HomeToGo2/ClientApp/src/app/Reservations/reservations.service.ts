@@ -15,10 +15,21 @@ export class ReservationService {
     return this.http.get<IReservation[]>(this.baseUrl);
   }
 
-  createReservation(reservation: IReservation): Observable<any> {
-    const createUrl = 'api/reservation/create'
-    return this.http.post<any>(createUrl, reservation);
+  createReservation(newReservation: IReservation): Observable<any> {
+    const createUrl = 'api/reservation/createReservation';
+    // Prepare the payload excluding the 'Listing' property
+    const payload = {
+      ReservationId: newReservation.ReservationId,
+      ReservationDate: newReservation.ReservationDate,
+      ListingId: newReservation.ListingId,
+      CheckInDate: newReservation.CheckInDate,
+      CheckOutDate: newReservation.CheckOutDate,
+      TotalPrice: newReservation.TotalPrice
+    };
+    return this.http.post<any>(createUrl, payload);
   }
+
+
 
   deleteReservation(id: number): Observable<any> {
     return this.http.delete<any>(`${this.baseUrl}/${id}`);

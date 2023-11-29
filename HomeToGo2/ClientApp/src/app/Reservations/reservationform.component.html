@@ -6,7 +6,7 @@
     <label for="listingId">Select a listing:</label><span class="text-danger">*</span>
     <select id="listingId" formControlName="ListingId" class="form-control">
       <option value="">Select a listing...</option>
-      <option *ngFor="let listing of listings" [value]="listing.ListingId">
+      <option *ngFor="let listing of listings" [ngValue]="listing.ListingId">
         {{ listing.Title }}
       </option>
     </select>
@@ -15,7 +15,7 @@
   <!-- Check-In Date -->
   <div class="form-group">
     <label for="checkInDate">Check-In Date:</label><span class="text-danger">*</span>
-    <input type="date" id="checkInDate" formControlName="CheckInDate" class="form-control" />
+    <input type="date" id="checkInDate" formControlName="CheckInDate" class="form-control"  />
   </div>
 
   <!-- Check-Out Date -->

@@ -2,6 +2,7 @@ using System;
 using System.ComponentModel.DataAnnotations;
 using System.Text.Json.Serialization;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc.ModelBinding;
 
 namespace HomeToGo2.Models
 {
@@ -13,16 +14,10 @@ namespace HomeToGo2.Models
         [JsonPropertyName("ReservationDate")]
         public DateTime ReservationDate { get; set; } = DateTime.Today;
 
-      //  [JsonPropertyName("UserId")]
-        //public string UserId { get; set; }
-
-      //  [JsonIgnore] 
-        //public virtual IdentityUser User { get; set; }
-
         [JsonPropertyName("ListingId")]
         public int ListingId { get; set; }
-
-        [JsonIgnore] 
+        
+        [BindNever]
         public virtual Listing Listing { get; set; }
 
         [DataType(DataType.Date)]

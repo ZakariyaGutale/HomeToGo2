@@ -89,6 +89,7 @@ public static class DBInit
                 {
                     ReservationId = 1,
                     ListingId = 1, 
+                    ReservationDate = DateTime.Today, 
                     CheckInDate = DateTime.Now.AddDays(1),
                     CheckOutDate = DateTime.Now.AddDays(7),
                     TotalPrice = 700 
@@ -97,6 +98,7 @@ public static class DBInit
                 {
                     ReservationId = 2,
                     ListingId = 3, 
+                    ReservationDate = DateTime.Today, 
                     CheckInDate = DateTime.Now.AddDays(1),
                     CheckOutDate = DateTime.Now.AddDays(3),
                     TotalPrice = 700 
@@ -105,6 +107,7 @@ public static class DBInit
                 {
                     ReservationId = 3,
                     ListingId = 5, 
+                    ReservationDate = DateTime.Today, 
                     CheckInDate = DateTime.Now.AddDays(1),
                     CheckOutDate = DateTime.Now.AddDays(5),
                     TotalPrice = 700 

@@ -15,6 +15,13 @@ export class ListingService {
     return this._http.get<IListing[]>(this.baseUrl);
   }
 
+  // In listing.service.ts
+
+  getListingById(listingId: number): Observable<IListing> {
+    return this._http.get<IListing>(`api/listing/${listingId}`);
+  }
+
+
   createListing(newListing: IListing): Observable<any> {
     const createUrl = 'api/listing/create';
     return this._http.post<any>(createUrl, newListing);
