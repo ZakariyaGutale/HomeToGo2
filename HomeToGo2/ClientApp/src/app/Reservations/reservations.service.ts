@@ -16,7 +16,7 @@ export class ReservationService {
   }
 
   createReservation(reservation: IReservation): Observable<any> {
-    const createUrl = 'api/reservation/create'
+    const createUrl = 'api/reservation/createReservation'
     return this.http.post<any>(createUrl, reservation);
   }
 

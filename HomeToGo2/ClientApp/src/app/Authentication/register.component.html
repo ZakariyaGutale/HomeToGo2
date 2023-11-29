@@ -18,6 +18,7 @@
       <input type="password" id="confirmPassword" [(ngModel)]="confirmPassword" name="confirmPassword" required>
     </div>
     <button type="submit" class="btn btn-primary">Register</button>
+    <a id="loginregister" [routerLink]="['/login']" class="btn btn-outline-secondary">Or Login</a>
   </form>
   <div *ngIf="errorMessage" class="alert alert-danger">{{ errorMessage }}</div>
   <div *ngIf="successMessage" class="alert alert-success">{{ successMessage }}</div>
