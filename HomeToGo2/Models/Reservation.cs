@@ -12,13 +12,7 @@ namespace HomeToGo2.Models
 
         [JsonPropertyName("ReservationDate")]
         public DateTime ReservationDate { get; set; } = DateTime.Today;
-
-      //  [JsonPropertyName("UserId")]
-        //public string UserId { get; set; }
-
-      //  [JsonIgnore] 
-        //public virtual IdentityUser User { get; set; }
-
+        
         [JsonPropertyName("ListingId")]
         public int ListingId { get; set; }
         

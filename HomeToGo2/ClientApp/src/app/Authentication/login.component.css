@@ -62,3 +62,8 @@
 #loginregister{
   margin-left: 7rem;
 }
+
+.error {
+  color: red;
+  font-size: 0.8em;
+}

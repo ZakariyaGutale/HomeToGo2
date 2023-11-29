@@ -81,3 +81,7 @@
 .card:hover {
   transform: translateY(-10px);
 }
+
+#gridcard{
+  margin-bottom: 15px;
+}

@@ -12,31 +12,31 @@
 </div>
 
 <div class="container">
-    <div class="row">
-      <ng-container *ngFor="let listing of sortedListings">
-            <div id="gridcard" class="col-md-4">
-                <a (click)="goToListingDetail(listing.ListingId)" class="card-link">
-                    <div class="card h-100">
-                        <img [src]="listing.ImageUrl" class="card-img-top" alt="{{ listing.Title }}">
-                        <div class="card-body">
-                            <h5 class="card-title">{{ listing.Title }}</h5>
-                            <p class="card-text">{{ listing.Description }}</p>
-                        </div>
-                        <div class="card-footer">
-                            <h6>{{ listing.Price | currency:'NOK ' }}</h6>
-                        </div>
-                    </div>
-                </a>
+  <div class="row">
+    <ng-container *ngFor="let listing of sortedListings">
+      <div id="gridcard" class="col-md-4">
+        <a (click)="goToListingDetail(listing.ListingId)" class="card-link">
+          <div class="card h-100">
+            <img [src]="listing.ImageUrl" class="card-img-top" alt="{{ listing.Title }}">
+            <div class="card-body">
+              <h5 class="card-title">{{ listing.Title }}</h5>
+              <p class="card-text">{{ listing.Description }}</p>
             </div>
-        </ng-container>
+            <div class="card-footer">
+              <h6>{{ listing.Price | currency:'NOK ' }}</h6>
+            </div>
+          </div>
+        </a>
+      </div>
+    </ng-container>
 
-        <!-- Add button to create new listing -->
-        <div class="col-md-4">
-            <div class="card h-100 text-center">
-                <div class="card-body d-flex align-items-center justify-content-center">
-                    <button [routerLink]="['/listingform', 'create', -1]" class="btn btn-primary">Create New Listing</button>
-                </div>
-            </div>
+    <!-- Add button to create new listing -->
+    <div class="col-md-4">
+      <div class="card h-100 text-center">
+        <div class="card-body d-flex align-items-center justify-content-center">
+          <button [routerLink]="['/listingform', 'create', -1]" class="btn btn-primary">Create New Listing</button>
         </div>
+      </div>
     </div>
+  </div>
 </div>

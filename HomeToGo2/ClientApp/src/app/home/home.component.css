@@ -72,3 +72,28 @@ img {
   width: auto;
   height: 500px;
 }
+
+/* Add this to your existing CSS file */
+
+.book-now-btn {
+  position: absolute;
+  bottom: 20px; /* Adjust this as needed */
+  right: 150px; /* Adjust this as needed */
+  background-color: red; /* Bootstrap primary color for example */
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  text-decoration: none; /* Remove underline from link */
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+
+}
+
+
+
+#carouselImages {
+  position: relative;
+}
+
+/* Ensure the rest of your CSS remains unchanged */

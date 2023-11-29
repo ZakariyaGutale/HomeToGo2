@@ -40,5 +40,4 @@ export class NavMenuComponent implements OnDestroy {
     }
   }
 
-  protected readonly User = User;
 }

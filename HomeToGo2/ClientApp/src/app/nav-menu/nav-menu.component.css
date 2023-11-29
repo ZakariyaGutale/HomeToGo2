@@ -1,20 +1,13 @@
-a.navbar-brand {
-  white-space: normal;
-  text-align: center;
-  word-break: break-all;
+/* nav-menu.component.css */
+
+.navbar-brand {
+  display: flex;
+  align-items: center;
 }
 
-html {
-  font-size: 14px;
-}
-@media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
-}
-
-.box-shadow {
-  box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+.icon {
+  height: 24px; /* Adjust based on your icon size */
+  margin-right: 10px;
 }
 
 .nav-sections {
@@ -32,9 +25,6 @@ html {
   /* Adjust according to your styling needs */
 }
 
-
-/* nav-menu.component.css */
-
 .logout-btn {
   background-color: #dc3545; /* Bootstrap danger color for example */
   color: white;
@@ -46,6 +36,6 @@ html {
   background-color: #bd2130; /* Darker shade for hover */
 }
 
-#nav-welcome{
+#nav-welcome {
   margin-right: 20px;
 }

@@ -1,17 +1,22 @@
 <div class="form-container">
   <h2>Login</h2>
-  <form (ngSubmit)="login()">
+  <form (ngSubmit)="login()" #loginForm="ngForm">
     <div class="form-group">
       <label for="username">Username:</label>
-      <input type="text" id="username" [(ngModel)]="username" name="username">
+      <input type="text" id="username" [(ngModel)]="username" name="username" required #usernameField="ngModel">
+      <div *ngIf="usernameField.invalid && (usernameField.dirty || usernameField.touched)" class="alert alert-danger">
+        Username is required.
+      </div>
     </div>
     <div class="form-group">
       <label for="password">Password:</label>
-      <input type="password" id="password" [(ngModel)]="password" name="password">
+      <input type="password" id="password" [(ngModel)]="password" name="password" required #passwordField="ngModel">
+      <div *ngIf="passwordField.invalid && (passwordField.dirty || passwordField.touched)" class="alert alert-danger">
+        Password is required.
+      </div>
     </div>
-    <button type="submit" class="btn btn-primary">Login</button>
+    <button type="submit" class="btn btn-primary" [disabled]="!loginForm.form.valid">Login</button>
     <a id="loginregister" [routerLink]="['/register']" class="btn btn-outline-secondary">Or register</a>
   </form>
   <div *ngIf="error" class="alert alert-danger">{{error}}</div>
-  <div *ngIf="successMessage" class="alert alert-success">{{ successMessage }}</div>
 </div>

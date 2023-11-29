@@ -18,7 +18,23 @@ public static class DBInit
         ListingDbContext context = serviceScope.ServiceProvider.GetRequiredService<ListingDbContext>();
         //context.Database.EnsureDeleted();
         context.Database.EnsureCreated();
+        var oleUser = new IdentityUser { UserName = "Ole Hansen", Email = "ole.hansen@email.no", PasswordHash = "HashedPassword1", EmailConfirmed = true }; 
+        var kariUser = new IdentityUser { UserName = "Kari Johansen", Email = "kari.johansen@email.no", PasswordHash = "HashedPassword2", EmailConfirmed = true }; 
+        var larsUser = new IdentityUser { UserName = "Lars Olsen", Email = "lars.olsen@email.no", PasswordHash = "HashedPassword3", EmailConfirmed = true }; 
 
+        if (!context.Users.Any(u => u.UserName == oleUser.UserName))
+        {
+            context.Users.Add(oleUser);
+        }
+        if (!context.Users.Any(u => u.UserName == kariUser.UserName))
+        {
+            context.Users.Add(kariUser);
+        }
+        if (!context.Users.Any(u => u.UserName == larsUser.UserName))
+        {
+            context.Users.Add(larsUser);
+        }
+        
         context.SaveChanges();
 
         if (!context.Listings.Any())

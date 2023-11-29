@@ -18,6 +18,8 @@ import { LoginComponent } from './Authentication/login.component';
 import { RegisterComponent } from './Authentication/register.component'; // Import RegisterComponent
 import { AuthService } from "./Authentication/auth.service";
 import { AuthGuard } from './Authentication/auth.guard';
+import {UsersComponent} from "./Authentication/users.component";
+
 
 
 @NgModule({
@@ -33,7 +35,8 @@ import { AuthGuard } from './Authentication/auth.guard';
     ReservationsComponent,
     ReservationFormComponent,
     LoginComponent, // LoginComponent is already here
-    RegisterComponent // Add RegisterComponent to declarations
+    RegisterComponent, // Add RegisterComponent to declarations
+    UsersComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -51,6 +54,7 @@ import { AuthGuard } from './Authentication/auth.guard';
       { path: 'reservationform', component: ReservationFormComponent, canActivate: [AuthGuard] },
       { path: 'login', component: LoginComponent }, // Login route
       { path: 'register', component: RegisterComponent }, // Add route for RegisterComponent
+      { path: 'users', component: UsersComponent },
       { path: '**', redirectTo: '', pathMatch: 'full' },
     ])
   ],
