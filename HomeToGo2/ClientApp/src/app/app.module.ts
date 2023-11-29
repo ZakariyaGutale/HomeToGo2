@@ -17,6 +17,8 @@ import { ReservationFormComponent } from './reservations/reservationform.compone
 import { LoginComponent } from './Authentication/login.component';
 import { RegisterComponent } from './Authentication/register.component'; // Import RegisterComponent
 import { AuthService } from "./Authentication/auth.service";
+import { AuthGuard } from './Authentication/auth.guard';
+
 
 @NgModule({
   declarations: [
@@ -41,12 +43,12 @@ import { AuthService } from "./Authentication/auth.service";
     RouterModule.forRoot([
       { path: '', component: HomeComponent, pathMatch: 'full' },
       { path: 'listings', component: ListingsComponent },
-      { path: 'listingform', component: ListingFormComponent },
-      { path: 'listingform/:mode/:id', component: ListingFormComponent },
+      { path: 'listingform', component: ListingFormComponent, canActivate: [AuthGuard] },
+      { path: 'listingform/:mode/:id', component: ListingFormComponent, canActivate: [AuthGuard] },
       { path: 'listingsgrid', component: ListingsGridComponent },
       { path: 'listingdetail/:id', component: ListingDetailComponent },
       { path: 'reservations', component: ReservationsComponent },
-      { path: 'reservationform', component: ReservationFormComponent },
+      { path: 'reservationform', component: ReservationFormComponent, canActivate: [AuthGuard] },
       { path: 'login', component: LoginComponent }, // Login route
       { path: 'register', component: RegisterComponent }, // Add route for RegisterComponent
       { path: '**', redirectTo: '', pathMatch: 'full' },
