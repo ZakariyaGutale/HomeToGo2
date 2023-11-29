@@ -73,6 +73,14 @@ export class ListingFormComponent {
     });
   }
 
+  handleResponse(response: any, operation: string) {
+    if (response.success) {
+      console.log(`Listing ${operation} successful:`, response.message);
+      this._router.navigate(['/listings']);
+    } else {
+      console.error(`Listing ${operation} failed:`, response.message);
+    }
+  }
   loadListingForEdit(listingId: number) {
     this._listingService.getListingById(listingId)
       .subscribe(

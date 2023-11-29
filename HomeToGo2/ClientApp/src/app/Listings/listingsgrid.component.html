@@ -1,10 +1,20 @@
 <h1 class="mb-4">Our Listings Properties</h1>
-<button [routerLink]="['/listings']" class="btn btn-secondary mb-3">Table View</button>
+<button [routerLink]="['/listings']" class="btn btn-secondary mb-3">Switch to Table View</button>
+
+<div class="mb-3">
+  <label for="sortOptions" class="form-label">Sort by:</label>
+  <select id="sortOptions" class="form-select" (change)="sortListings($event)">
+    <option value="priceAsc">Price: Low to High</option>
+    <option value="priceDesc">Price: High to Low</option>
+    <option value="titleAsc">Title: A-Z</option>
+    <option value="titleDesc">Title: Z-A</option>
+  </select>
+</div>
 
 <div class="container">
     <div class="row">
-        <ng-container *ngFor="let listing of listings">
-            <div class="col-md-4">
+      <ng-container *ngFor="let listing of sortedListings">
+            <div id="gridcard" class="col-md-4">
                 <a (click)="goToListingDetail(listing.ListingId)" class="card-link">
                     <div class="card h-100">
                         <img [src]="listing.ImageUrl" class="card-img-top" alt="{{ listing.Title }}">

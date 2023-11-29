@@ -9,7 +9,7 @@ import { ListingService } from './listings.service';
   styleUrls: ['./listingdetail.component.css']
 })
 export class ListingDetailComponent implements OnInit {
-  listing!: IListing; // The non-null assertion operator '!' tells TypeScript that 'listing' will be assigned.
+  listing!: IListing;
 
 
   constructor(
@@ -36,5 +36,5 @@ export class ListingDetailComponent implements OnInit {
   }
 
 
-  
+
 }

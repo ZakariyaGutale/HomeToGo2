@@ -40,7 +40,7 @@ public class ListingController : Controller
     }
 
     
-    [Authorize]
+    
     [HttpPost("create")]
     public async Task<IActionResult> Create([FromBody] Listing newListing)
     {

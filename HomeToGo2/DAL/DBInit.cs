@@ -42,7 +42,7 @@ public static class DBInit
                     Title = "Modern Apartment in Pilestredet",
                     Address = "Pilistredet 32",
                     Price = 400,
-                    Description = "This modern apartment in Pilestredet is perfect for those who wish to live centrally in Oslo.\"",
+                    Description = "This modern apartment in Pilestredet is perfect for those who wish to live centrally in Oslo.",
                     ImageUrl = "assets/Images/Ap3.jpg"
                 },
                 new Listing

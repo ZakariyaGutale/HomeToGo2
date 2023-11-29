@@ -1,7 +1,5 @@
-
 import { Component, OnInit } from '@angular/core';
 import { IListing } from './listing';
-import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { ListingService } from './listings.service';
 
@@ -10,14 +8,12 @@ import { ListingService } from './listings.service';
   templateUrl: './listings.component.html',
   styleUrls: ['./listings.component.css']
 })
-
-export class ListingsComponent {
+export class ListingsComponent implements OnInit {
   viewTitle: String = 'Table';
-  displayImage: boolean = true;
-  listings: IListing[] = [];
+  displayImage: boolean = true; // Controls whether to display images
+  listings: IListing[] = []; // Array to store listing data
 
-  constructor(private _router: Router, private _listingService: ListingService) { }
-
+  // Filter-related properties
   private _listFilter: string = '';
   get listFilter(): string {
     return this._listFilter;
@@ -28,25 +24,28 @@ export class ListingsComponent {
     this.filteredListings = this.performFilter(value);
   }
 
+  filteredListings: IListing[] = this.listings; // Array to store filtered listings
+
+  constructor(private _router: Router, private _listingService: ListingService) { }
+
+  // Fetch listings from the service
   getListings(): void {
     this._listingService.getListings()
-      .subscribe((data: IListing[]) => {  // Explicitly declare data as type IListing[]
+      .subscribe((data: IListing[]) => {
         console.log('All', JSON.stringify(data));
         this.listings = data;
         this.filteredListings = this.listings;
-      }
-      );
+      });
   }
 
-
-  filteredListings: IListing[] = this.listings;
-
+  // Filter listings based on the filter criteria
   performFilter(filterBy: string): IListing[] {
     filterBy = filterBy.toLocaleLowerCase();
     return this.listings.filter((listing: IListing) =>
       listing.Title.toLocaleLowerCase().includes(filterBy))
   }
 
+  // Method to delete a listing
   deleteListing(listing: IListing): void {
     const confirmDelete = confirm(`Are you sure you want to delete "${listing.Title}"?`);
     if (confirmDelete) {
@@ -64,18 +63,22 @@ export class ListingsComponent {
     }
   }
 
-   toggleImage(): void {
+  // Toggle image display on the listing table
+  toggleImage(): void {
     this.displayImage = !this.displayImage;
-   }
+  }
 
+  // Navigate to the listing form page
   navigateToListingForm() {
     this._router.navigate(['/listingform']);
   }
 
   ngOnInit(): void {
+    // Fetch listings on component initialization
     this.getListings();
   }
 
+  // Navigate to the detail view of a listing
   goToListingDetail(listingId: number): void {
     this._router.navigate(['/listingdetail', listingId]);
   }
