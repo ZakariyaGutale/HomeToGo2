@@ -20,7 +20,7 @@
     <td>{{reservation.Listing?.Title}}</td>
     <td>{{reservation.CheckInDate | date:'shortDate'}}</td>
     <td>{{reservation.CheckOutDate | date:'shortDate'}}</td>
-    <td>{{reservation.TotalPrice | currency:'NOK'}}</td>
+    <td>{{reservation.TotalPrice | currency:'NOK '}}</td>
     <td><button class="btn btn-danger" (click)="deleteReservation(reservation.ReservationId)">Delete</button></td>
   </tr>
   </tbody>

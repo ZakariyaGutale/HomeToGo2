@@ -32,7 +32,7 @@ public static class DBInit
                     Address = "Osloveien 36",
                     Price = 1200,
                     Description = "This apartment at Tjuvholmen impresses with its modern style and exclusive location, right by Oslo’s waterfront",
-                    ImageUrl = "/Images/Ap1.jpg"
+                    ImageUrl = "assets/Images/Ap1.jpg"
                 },
              
    
@@ -43,7 +43,7 @@ public static class DBInit
                     Address = "Pilistredet 32",
                     Price = 400,
                     Description = "This modern apartment in Pilestredet is perfect for those who wish to live centrally in Oslo.\"",
-                    ImageUrl = "/Images/Ap3.jpg"
+                    ImageUrl = "assets/Images/Ap3.jpg"
                 },
                 new Listing
                 {
@@ -52,7 +52,7 @@ public static class DBInit
                     Address = "Montebello gate 1",
                     Price = 2500,
                     Description = "This spacious villa in Montebello combines luxury and comfort..",
-                    ImageUrl = "/Images/Ap4.jpg"
+                    ImageUrl = "assets/Images/Ap4.jpg"
                 },
                 new Listing
                 {
@@ -61,7 +61,7 @@ public static class DBInit
                     Address = "Frogner Veien 43",
                     Price = 1600,
                     Description = "Single-family homes in Frogner Hageby in Oslo are renowned for their idyllic and lush atmosphere.",
-                    ImageUrl = "/Images/Ap5.jpg"
+                    ImageUrl = "assets/Images/Ap5.jpg"
                 },
                 new Listing
                 {
@@ -70,7 +70,7 @@ public static class DBInit
                     Address = "Zanzi 73",
                     Price = 3500,
                     Description = "This beach house in Zanzibar offers stunning ocean views, perfect for a relaxing holiday..",
-                    ImageUrl = "/Images/Ap6.jpg"
+                    ImageUrl = "assets/Images/Ap6.jpg"
                 },
             
    

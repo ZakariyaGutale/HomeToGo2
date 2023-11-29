@@ -25,7 +25,9 @@ public class AccountController : ControllerBase
     {
         if (ModelState.IsValid)
         {
-            var user = new IdentityUser { UserName = model.Email, Email = model.Email };
+            var user = new IdentityUser { UserName = model.UserName, Email = model.Email };
+            // If you have a custom user model with a Name property, set it here as well
+
             var result = await _userManager.CreateAsync(user, model.Password);
 
             if (result.Succeeded)
@@ -41,10 +43,11 @@ public class AccountController : ControllerBase
         return BadRequest(ModelState);
     }
 
+
     [HttpPost("login")]
     public async Task<IActionResult> Login([FromBody] LoginModel model)
     {
-        var user = await _userManager.FindByEmailAsync(model.Email);
+        var user = await _userManager.FindByNameAsync(model.UserName);
         if (user != null && await _userManager.CheckPasswordAsync(user, model.Password))
         {
             // Generate JWT token
@@ -53,6 +56,7 @@ public class AccountController : ControllerBase
         }
         return Unauthorized();
     }
+
 
     private string GenerateJwtToken(IdentityUser user)
     {
@@ -75,12 +79,14 @@ public class AccountController : ControllerBase
 public class RegisterModel
 {
     public string Email { get; set; }
+    public string UserName { get; set; }
     public string Password { get; set; }
-    // Additional fields as needed
 }
+
 
 public class LoginModel
 {
-    public string Email { get; set; }
+    public string UserName { get; set; }
     public string Password { get; set; }
 }
+

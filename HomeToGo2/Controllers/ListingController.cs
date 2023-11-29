@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using HomeToGo2.Models;
 using HomeToGo2.DAL;
-
+using Microsoft.AspNetCore.Authorization;
 
 
 // For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
@@ -39,6 +39,8 @@ public class ListingController : Controller
         return Ok(listings);
     }
 
+    
+    [Authorize]
     [HttpPost("create")]
     public async Task<IActionResult> Create([FromBody] Listing newListing)
     {

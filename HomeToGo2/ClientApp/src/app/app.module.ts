@@ -15,8 +15,8 @@ import { ListingDetailComponent } from './Listings/listingdetail.component';
 import { ReservationsComponent } from './reservations/reservations.component';
 import { ReservationFormComponent } from './reservations/reservationform.component';
 import { LoginComponent } from './Authentication/login.component';
-import {AuthService} from "./Authentication/auth.service";
-
+import { RegisterComponent } from './Authentication/register.component'; // Import RegisterComponent
+import { AuthService } from "./Authentication/auth.service";
 
 @NgModule({
   declarations: [
@@ -30,8 +30,8 @@ import {AuthService} from "./Authentication/auth.service";
     ListingDetailComponent,
     ReservationsComponent,
     ReservationFormComponent,
-    LoginComponent // Add LoginComponent to declarations
-
+    LoginComponent, // LoginComponent is already here
+    RegisterComponent // Add RegisterComponent to declarations
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -47,12 +47,12 @@ import {AuthService} from "./Authentication/auth.service";
       { path: 'listingdetail/:id', component: ListingDetailComponent },
       { path: 'reservations', component: ReservationsComponent },
       { path: 'reservationform', component: ReservationFormComponent },
-      { path: 'login', component: LoginComponent }, // Add route for LoginComponent
+      { path: 'login', component: LoginComponent }, // Login route
+      { path: 'register', component: RegisterComponent }, // Add route for RegisterComponent
       { path: '**', redirectTo: '', pathMatch: 'full' },
     ])
   ],
-  providers: [AuthService], // Add AuthService to providers
+  providers: [AuthService], // AuthService is already provided
   bootstrap: [AppComponent]
 })
 export class AppModule { }
-

@@ -23,7 +23,7 @@ namespace HomeToGo2.Models
         public int ListingId { get; set; }
         
         [JsonPropertyName("Listing")]
-        public virtual Listing Listing { get; set; }
+        public virtual Listing? Listing { get; set; }
 
         [DataType(DataType.Date)]
         [Display(Name = "Check-in Date")]

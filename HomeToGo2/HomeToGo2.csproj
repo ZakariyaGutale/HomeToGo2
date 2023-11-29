@@ -38,6 +38,7 @@
     <Folder Include="ClientApp\src\assets\Images\" />
     <Folder Include="ClientApp\src\app\Shared\" />
     <Folder Include="DAL\" />
+    <Folder Include="Logs\" />
   </ItemGroup>
     <Target Name="DebugEnsureNodeEnv" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('$(SpaRoot)node_modules') ">
     <!-- Ensure Node.js is installed -->

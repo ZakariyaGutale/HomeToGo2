@@ -28,7 +28,16 @@ export class AuthService {
       }));
   }
 
+
+  register(email: string, username: string, password: string): Observable<any> {
+    return this.http.post<any>(`/api/account/register`, { email, username, password })
+      .pipe(map(response => {
+        return response; // Directly return the response object
+      }));
+  }
+
   logout() {
+    // Remove user from local storage to log user out
     localStorage.removeItem('currentUser');
     this.currentUserSubject.next(null);
   }
