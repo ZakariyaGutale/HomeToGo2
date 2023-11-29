@@ -1,12 +1,13 @@
 ﻿using System;
 using HomeToGo2.Models;
-
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
 
 namespace HomeToGo2.DAL;
 
-public class ListingDbContext : DbContext
+public class ListingDbContext : IdentityDbContext<IdentityUser>
 {
     public ListingDbContext(DbContextOptions<ListingDbContext> options) : base(options)
     {
