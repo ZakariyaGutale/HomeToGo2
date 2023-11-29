@@ -19,9 +19,9 @@ export class ListingFormComponent {
     private _listingService: ListingService
   ) {
     this.listingForm = _formbuilder.group({
-      title: ['', Validators.required],
-      address: ['', Validators.required],
-      price: ['', Validators.required],
+      title: ['', [Validators.required, Validators.minLength(2), Validators.maxLength(50)]],
+      address: ['', [Validators.required, Validators.minLength(4), Validators.maxLength(50)]],
+      price: ['', [Validators.required, Validators.min(1)]],
       description: [''],
       imageUrl: ['']
     });

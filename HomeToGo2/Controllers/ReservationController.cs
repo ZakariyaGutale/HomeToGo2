@@ -83,13 +83,11 @@ namespace HomeToGo.Controllers
             {
                 return BadRequest("Invalid ListingId in Reservation.");
             }
-
             // Optional: Check for date overlap
             if (await IsReservationOverlap(newReservation))
             {
                 return BadRequest("The selected dates are already booked for this listing.");
             }
-
             // Calculate total price based on the listing's price and the duration of stay
             TimeSpan stayDuration = newReservation.CheckOutDate - newReservation.CheckInDate;
             newReservation.TotalPrice = listing.Price * stayDuration.Days;

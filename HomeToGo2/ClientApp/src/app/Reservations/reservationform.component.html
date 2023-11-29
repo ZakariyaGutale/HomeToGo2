@@ -10,18 +10,35 @@
         {{ listing.Title }}
       </option>
     </select>
+    <!-- Display error if listing is not selected -->
+    <div *ngIf="reservationForm.get('ListingId')?.touched && reservationForm.get('ListingId')?.errors?.required" class="alert alert-danger">
+      Please select a listing.
+    </div>
   </div>
 
   <!-- Check-In Date -->
   <div class="form-group">
     <label for="checkInDate">Check-In Date:</label><span class="text-danger">*</span>
     <input type="date" id="checkInDate" formControlName="CheckInDate" class="form-control" />
+    <!-- Display error if check-in date is not selected -->
+    <div *ngIf="reservationForm.get('CheckInDate')?.touched && reservationForm.get('CheckInDate')?.errors?.required" class="alert alert-danger">
+      Please enter a check-in date.
+    </div>
   </div>
 
   <!-- Check-Out Date -->
   <div class="form-group">
     <label for="checkOutDate">Check-Out Date:</label><span class="text-danger">*</span>
     <input type="date" id="checkOutDate" formControlName="CheckOutDate" class="form-control" />
+    <!-- Display error if check-out date is not selected -->
+    <div *ngIf="reservationForm.get('CheckOutDate')?.touched && reservationForm.get('CheckOutDate')?.errors?.required" class="alert alert-danger">
+      Please enter a check-out date.
+    </div>
+  </div>
+
+  <!-- Date Range Error -->
+  <div *ngIf="reservationForm.errors?.dateRangeInvalid && reservationForm.touched" class="alert alert-danger">
+    Check-out date must be after the check-in date.
   </div>
 
   <!-- Submission Buttons -->
