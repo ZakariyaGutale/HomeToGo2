@@ -14,6 +14,8 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 
 builder.Services.AddControllersWithViews();
+builder.Services.AddScoped<IReservationRepository, ReservationRepository>();
+
 
 // Add ASP.NET Core Identity
 builder.Services.AddIdentity<IdentityUser, IdentityRole>()

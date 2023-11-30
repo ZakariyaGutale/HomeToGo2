@@ -11,7 +11,6 @@ using System.Threading.Tasks;
 [ApiController]
 public class AccountController : ControllerBase
 {
-    // Dependency injection for UserManager and Configuration
     private readonly UserManager<IdentityUser> _userManager;
     private readonly IConfiguration _configuration;
 
@@ -77,18 +76,17 @@ public class AccountController : ControllerBase
     // Method to generate JWT token
     private string GenerateJwtToken(IdentityUser user)
     {
+        var keyString = _configuration["Jwt:Key"];
+        if (string.IsNullOrEmpty(keyString))
+        {
+            throw new InvalidOperationException("JWT key is not set in configuration.");
+        }
         var tokenHandler = new JwtSecurityTokenHandler();
         var key = Encoding.ASCII.GetBytes(_configuration["Jwt:Key"]);
         var tokenDescriptor = new SecurityTokenDescriptor
         {
-            // Create claims for the token (e.g., user ID)
-            Subject = new ClaimsIdentity(new Claim[] 
-            {
-                new Claim(ClaimTypes.Name, user.Id.ToString())
-            }),
-            // Set the token expiration date
+            Subject = new ClaimsIdentity(new[] { new Claim(ClaimTypes.Name, user.Id) }),
             Expires = DateTime.UtcNow.AddDays(7),
-            // Sign the token with HMAC-SHA256 algorithm
             SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature)
         };
         var token = tokenHandler.CreateToken(tokenDescriptor);

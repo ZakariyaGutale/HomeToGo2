@@ -85,12 +85,12 @@ public class ListingController : Controller
         bool returnOk = await _listingRepository.Update(newListing);
         if (returnOk)
         {
-            var response = new { success = true, message = "Listing " + newListing.Title + " updated successfully" };
+            var response = new { success = true, message = "Listing updated successfully" };
             return Ok(response);
         }
         else
         {
-            var response = new { success = false, message = "Listing creation failed" };
+            var response = new { success = false, message = "Listing update failed" };
             return Ok(response);
         }
     }
