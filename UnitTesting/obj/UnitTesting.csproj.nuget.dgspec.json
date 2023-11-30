@@ -1,26 +1,27 @@
 {
   "format": 1,
   "restore": {
-    "/Users/zakarianurgutale/Projects/HomeToGo2/UnitTesting/UnitTesting.csproj": {}
+    "/Users/ibrahim/Projects/HomeToGo2/HomeToGo2/UnitTesting/UnitTesting.csproj": {}
   },
   "projects": {
-    "/Users/zakarianurgutale/Projects/HomeToGo2/HomeToGo2/HomeToGo2.csproj": {
+    "/Users/ibrahim/Projects/HomeToGo2/HomeToGo2/HomeToGo2/HomeToGo2.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/zakarianurgutale/Projects/HomeToGo2/HomeToGo2/HomeToGo2.csproj",
+        "projectUniqueName": "/Users/ibrahim/Projects/HomeToGo2/HomeToGo2/HomeToGo2/HomeToGo2.csproj",
         "projectName": "HomeToGo2",
-        "projectPath": "/Users/zakarianurgutale/Projects/HomeToGo2/HomeToGo2/HomeToGo2.csproj",
-        "packagesPath": "/Users/zakarianurgutale/.nuget/packages/",
-        "outputPath": "/Users/zakarianurgutale/Projects/HomeToGo2/HomeToGo2/obj/",
+        "projectPath": "/Users/ibrahim/Projects/HomeToGo2/HomeToGo2/HomeToGo2/HomeToGo2.csproj",
+        "packagesPath": "/Users/ibrahim/.nuget/packages/",
+        "outputPath": "/Users/ibrahim/Projects/HomeToGo2/HomeToGo2/HomeToGo2/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/Users/zakarianurgutale/.nuget/NuGet/NuGet.Config"
+          "/Users/ibrahim/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
         ],
         "sources": {
-          "/usr/local/share/dotnet/sdk/7.0.307/Sdks/Microsoft.NET.Sdk.Web/library-packs": {},
+          "/usr/local/share/dotnet/library-packs": {},
+          "/usr/local/share/dotnet/sdk/7.0.311/Sdks/Microsoft.NET.Sdk.Web/library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -91,34 +92,35 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/7.0.307/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/7.0.311/RuntimeIdentifierGraph.json"
         }
       }
     },
-    "/Users/zakarianurgutale/Projects/HomeToGo2/UnitTesting/UnitTesting.csproj": {
+    "/Users/ibrahim/Projects/HomeToGo2/HomeToGo2/UnitTesting/UnitTesting.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/zakarianurgutale/Projects/HomeToGo2/UnitTesting/UnitTesting.csproj",
+        "projectUniqueName": "/Users/ibrahim/Projects/HomeToGo2/HomeToGo2/UnitTesting/UnitTesting.csproj",
         "projectName": "UnitTesting",
-        "projectPath": "/Users/zakarianurgutale/Projects/HomeToGo2/UnitTesting/UnitTesting.csproj",
-        "packagesPath": "/Users/zakarianurgutale/.nuget/packages/",
-        "outputPath": "/Users/zakarianurgutale/Projects/HomeToGo2/UnitTesting/obj/",
+        "projectPath": "/Users/ibrahim/Projects/HomeToGo2/HomeToGo2/UnitTesting/UnitTesting.csproj",
+        "packagesPath": "/Users/ibrahim/.nuget/packages/",
+        "outputPath": "/Users/ibrahim/Projects/HomeToGo2/HomeToGo2/UnitTesting/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/Users/zakarianurgutale/.nuget/NuGet/NuGet.Config"
+          "/Users/ibrahim/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
         ],
         "sources": {
+          "/usr/local/share/dotnet/library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "/Users/zakarianurgutale/Projects/HomeToGo2/HomeToGo2/HomeToGo2.csproj": {
-                "projectPath": "/Users/zakarianurgutale/Projects/HomeToGo2/HomeToGo2/HomeToGo2.csproj"
+              "/Users/ibrahim/Projects/HomeToGo2/HomeToGo2/HomeToGo2/HomeToGo2.csproj": {
+                "projectPath": "/Users/ibrahim/Projects/HomeToGo2/HomeToGo2/HomeToGo2/HomeToGo2.csproj"
               }
             }
           }
@@ -174,7 +176,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/7.0.307/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/7.0.311/RuntimeIdentifierGraph.json"
         }
       }
     }

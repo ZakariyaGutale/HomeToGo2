@@ -16,7 +16,7 @@ public static class DBInit
     {
         using var serviceScope = app.ApplicationServices.CreateScope();
         ListingDbContext context = serviceScope.ServiceProvider.GetRequiredService<ListingDbContext>();
-        //context.Database.EnsureDeleted();
+        context.Database.EnsureDeleted();
         context.Database.EnsureCreated();
         var oleUser = new IdentityUser { UserName = "Ole Hansen", Email = "ole.hansen@email.no", PasswordHash = "HashedPassword1", EmailConfirmed = true }; 
         var kariUser = new IdentityUser { UserName = "Kari Johansen", Email = "kari.johansen@email.no", PasswordHash = "HashedPassword2", EmailConfirmed = true }; 
@@ -106,28 +106,37 @@ public static class DBInit
                     ReservationId = 1,
                     ListingId = 1, 
                     CheckInDate = DateTime.Now.AddDays(1),
-                    CheckOutDate = DateTime.Now.AddDays(7),
-                    TotalPrice = 700 
+                    CheckOutDate = DateTime.Now.AddDays(7)
+                    
                 },
                 new Reservation()
                 {
                     ReservationId = 2,
                     ListingId = 3, 
                     CheckInDate = DateTime.Now.AddDays(1),
-                    CheckOutDate = DateTime.Now.AddDays(3),
-                    TotalPrice = 700 
+                    CheckOutDate = DateTime.Now.AddDays(3)
                 },
                 new Reservation()
                 {
                     ReservationId = 3,
                     ListingId = 5, 
                     CheckInDate = DateTime.Now.AddDays(1),
-                    CheckOutDate = DateTime.Now.AddDays(5),
-                    TotalPrice = 700 
+                    CheckOutDate = DateTime.Now.AddDays(5)
                 }
             }; 
 
             context.AddRange(reservations);
+            context.SaveChanges();
+            
+            foreach (var reservation in reservations)
+            {
+                var listing = context.Listings.Find(reservation.ListingId);
+                if (listing != null)
+                {
+                    TimeSpan duration = reservation.CheckOutDate - reservation.CheckInDate;
+                    reservation.TotalPrice = duration.Days * listing.Price;
+                }
+            }
             context.SaveChanges();
         }
 
