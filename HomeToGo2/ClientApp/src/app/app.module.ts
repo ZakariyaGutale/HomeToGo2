@@ -19,6 +19,8 @@ import { RegisterComponent } from './Authentication/register.component'; // Impo
 import { AuthService } from "./Authentication/auth.service";
 import { AuthGuard } from './Authentication/auth.guard';
 import {UsersComponent} from "./Authentication/users.component";
+import { FooterComponent } from './Footer/footer.component';
+
 
 
 
@@ -36,7 +38,8 @@ import {UsersComponent} from "./Authentication/users.component";
     ReservationFormComponent,
     LoginComponent, // LoginComponent is already here
     RegisterComponent, // Add RegisterComponent to declarations
-    UsersComponent
+    UsersComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),

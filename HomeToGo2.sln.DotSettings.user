@@ -1,8 +1,4 @@
 ﻿<wpf:ResourceDictionary xml:space="preserve" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:ss="urn:shemas-jetbrains-com:settings-storage-xaml" xmlns:wpf="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
-	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=feeb23cb_002Df2b7_002D41b4_002D8223_002Dc2c63a755f33/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="All tests from ListingControllerTest.cs" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;
-  &lt;Or&gt;
-    &lt;ProjectFile&gt;9E55F3BB-A596-4041-99A1-CACA9024AECF/f:ListingControllerTest.cs&lt;/ProjectFile&gt;
-    &lt;ProjectFile&gt;9E55F3BB-A596-4041-99A1-CACA9024AECF/f:ReservationControllerTest.cs&lt;/ProjectFile&gt;
-    &lt;ProjectFile&gt;9E55F3BB-A596-4041-99A1-CACA9024AECF/f:AccountControllerTest.cs&lt;/ProjectFile&gt;
-  &lt;/Or&gt;
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=6b8d8ff0_002D6227_002D4468_002D9090_002D9c9adc3eb2e7/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="All tests from &amp;lt;UnitTesting&amp;gt;" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;
+  &lt;Project Location="/Users/zakarianurgutale/Projects/HomeToGo2/UnitTesting" Presentation="&amp;lt;UnitTesting&amp;gt;" /&gt;
 &lt;/SessionState&gt;</s:String></wpf:ResourceDictionary>

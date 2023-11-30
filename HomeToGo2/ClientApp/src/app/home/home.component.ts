@@ -7,7 +7,6 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  // Example properties (replace or remove based on actual usage)
   title: string = 'Welcome to HomeToGo';
   featuredRentals: string = 'Featured Rentals';
 

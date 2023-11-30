@@ -1,0 +1,11 @@
+.footer {
+  margin-top: 3rem;
+  flex-shrink: 0;
+  text-align: center;
+  line-height: 60px; /* Adjust the height as needed */
+  /* Add more styles here if needed */
+}
+
+*{
+  text-decoration: none;
+}
