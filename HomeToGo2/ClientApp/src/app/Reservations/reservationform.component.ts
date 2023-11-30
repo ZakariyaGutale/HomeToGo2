@@ -5,30 +5,25 @@ import { ReservationService } from './reservations.service';
 import { IListing } from '../listings/listing';
 import { ListingService } from '../listings/listings.service';
 
-// Component decorator defining the selector and template for the reservation form
 @Component({
   selector: "app-reservation-form",
   templateUrl: "./reservationform.component.html"
 })
 export class ReservationFormComponent implements OnInit {
-  // Declaration of form group for handling reservation form inputs
   reservationForm: FormGroup;
-  // Array to store listings fetched from the service
   listings: IListing[] = [];
-  // Variables for default dates in the form
   today: string;
   threeDaysLater: string;
+  overlapError: string = ''; // Error message for the overlap
 
   constructor(
-    private formBuilder: FormBuilder, // FormBuilder for building the form group
-    private router: Router, // Router for navigating between components
-    private reservationService: ReservationService, // Service for reservation operations
-    private listingService: ListingService // Service for listing operations
+    private formBuilder: FormBuilder,
+    private router: Router,
+    private reservationService: ReservationService,
+    private listingService: ListingService
   ) {
-    // Setting default dates for the reservation form
     this.today = this.formatDate(new Date());
     this.threeDaysLater = this.formatDate(new Date(new Date().getTime() + 3 * 24 * 60 * 60 * 1000));
-    // Initializing the reservation form with validators
     this.reservationForm = this.formBuilder.group({
       ListingId: ['', Validators.required],
       CheckInDate: [this.today, Validators.required],
@@ -37,49 +32,88 @@ export class ReservationFormComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.loadListings(); // Load listings when the component initializes
-  }
+    this.loadListings();
 
-  // Method to load listings using the ListingService
-  loadListings(): void {
-    this.listingService.getListings().subscribe({
-      next: (listings) => this.listings = listings, // Assigning fetched listings to the local array
-      error: (error) => console.error('Error loading listings', error) // Handling errors
+    // Subscribe to form value changes
+    this.reservationForm.valueChanges.subscribe(() => {
+      // Call the overlap check function if the form fields are valid
+      if (this.reservationForm.get('ListingId')?.valid &&
+        this.reservationForm.get('CheckInDate')?.valid &&
+        this.reservationForm.get('CheckOutDate')?.valid) {
+        this.checkOverlap();
+      }
     });
   }
 
-  // Method to handle form submission
+  checkOverlap(): void {
+    // Only send the necessary fields for overlap check
+    const partialReservation = {
+      ListingId: this.reservationForm.get('ListingId')?.value,
+      CheckInDate: this.reservationForm.get('CheckInDate')?.value,
+      CheckOutDate: this.reservationForm.get('CheckOutDate')?.value
+    };
+
+    this.reservationService.checkOverlap(partialReservation).subscribe({
+      next: (isOverlap) => {
+        if (isOverlap) {
+          // If there is an overlap, set an error message
+          this.overlapError = 'The selected dates are not available for this listing. Please choose different dates.';
+        } else {
+          // If there is no overlap, clear the error message
+          this.overlapError = '';
+        }
+      },
+      error: (error) => {
+        // Handle server errors here
+        console.error('Error checking reservation overlap:', error);
+      }
+    });
+  }
+
+  loadListings(): void {
+    this.listingService.getListings().subscribe({
+      next: (listings) => this.listings = listings,
+      error: (error) => console.error('Error loading listings', error)
+    });
+  }
+
   onSubmit(): void {
+    if(this.overlapError) {
+      // If there is an overlap error, do not submit and alert the user
+      alert(this.overlapError);
+      return;
+    }
+
     console.log("Reservation form submitted: ");
     console.log(this.reservationForm.value);
     const newReservation = this.reservationForm.value;
-    // Creating a new reservation through the ReservationService
     this.reservationService.createReservation(newReservation)
       .subscribe({
         next: (response) => {
-          console.log(response.message); // Logging response message
-          this.router.navigate(['/reservations']); // Navigate to reservations page after creation
+          console.log(response.message);
+          this.router.navigate(['/reservations']);
         },
-        error: (error) => console.error('Reservation creation failed', error) // Handling errors
+        error: (error) => {
+          console.error('Reservation creation failed', error);
+          this.overlapError = error.error || 'An error occurred while creating the reservation.';
+        }
       });
   }
 
-  // Method to navigate back to the reservations page
   backToReservations(): void {
     this.router.navigate(['/reservations']);
   }
 
-  // Helper method to format date to a string
   private formatDate(date: Date): string {
     return date.toISOString().split('T')[0];
   }
 
-  // Custom validator to ensure the date range is valid
+  // Custom validator for checking date range
   private dateRangeValidator(group: FormGroup): { [key: string]: any } | null {
     const checkInDate = group.get('CheckInDate')?.value;
     const checkOutDate = group.get('CheckOutDate')?.value;
 
-    // Validation logic for checking the order of dates
+    // Check if both dates are filled and if check-out date is after check-in date
     if (checkInDate && checkOutDate && new Date(checkOutDate) <= new Date(checkInDate)) {
       return { dateRangeInvalid: true };
     }

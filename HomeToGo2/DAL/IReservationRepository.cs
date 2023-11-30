@@ -9,5 +9,8 @@ namespace HomeToGo2.DAL
         Task<bool> Create(Reservation reservation);
         Task<IEnumerable<Reservation>> GetAll();
         Task<bool> Delete(int id);
+        Task<bool> IsReservationOverlap(Reservation reservation);
+
     }
+    
 }

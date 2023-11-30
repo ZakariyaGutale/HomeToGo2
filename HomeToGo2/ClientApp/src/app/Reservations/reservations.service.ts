@@ -34,4 +34,12 @@ export class ReservationService {
     // Uses HttpClient to send a DELETE request to the URL with the reservation ID
     return this.http.delete<any>(`${this.baseUrl}/${id}`);
   }
+
+  //method to check if the dates overlaps
+  checkOverlap(reservation: Partial<IReservation>): Observable<boolean> {
+    const url = `${this.baseUrl}/checkOverlap`;
+    return this.http.post<boolean>(url, reservation);
+  }
+
+
 }
